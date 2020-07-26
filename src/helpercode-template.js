@@ -1,4 +1,4 @@
-const generatePage = (name, github) => {
+const generatePage = () => {
     return `
     <!DOCTYPE html>
 <html lang="en">
@@ -22,9 +22,11 @@ const generatePage = (name, github) => {
 <body>
     <header class="display-4 bg-dark text-white text-center p-2 shadow-sm">Team Profile</header>
         <main class="card-group">
+
+
 <!-- generateProfile -->
             <div class="card shadow m-3 bg-light" style="max-width: 20rem;">
-                <div class="card-header text-white border-bottom-0 pb-1">Name</div>
+                <div class="card-header text-white border-bottom-0 pb-1">${name}</div>
                     <div class="card-header text-white pt-1"><span><i class="fas fa-user-astronaut"></i></span>  Class</div>                               
                         <div class="card-body">
                             <ul class="list-group shadow-sm">
@@ -35,6 +37,8 @@ const generatePage = (name, github) => {
                         </div>
             </div>
 <!-- generateProfile -->
+
+
         </main> 
 </body>
 </html>
