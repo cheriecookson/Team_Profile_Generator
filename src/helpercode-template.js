@@ -26,7 +26,7 @@ const generatePage = () => {
 
 <!-- generateProfile -->
             <div class="card shadow m-3 bg-light" style="max-width: 20rem;">
-                <div class="card-header text-white border-bottom-0 pb-1">${name}</div>
+                <div class="card-header text-white border-bottom-0 pb-1">name</div>
                     <div class="card-header text-white pt-1"><span><i class="fas fa-user-astronaut"></i></span>  Class</div>                               
                         <div class="card-body">
                             <ul class="list-group shadow-sm">
