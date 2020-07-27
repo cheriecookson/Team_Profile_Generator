@@ -5,10 +5,10 @@ const Manager = require("./lib/Manager");
 const generatePage = require(`./src/helpercode-template.js`);
 const { writeFile, copyFile } = require('./utils/generate-site');
 
-const employee = [];
+const employees = [];
 
 function generateProfile() {
-  generatePage();
+  
   addEmployee();
 }
 
@@ -39,7 +39,7 @@ function addEmployee() {
     .then(function({name, role, id, email}) {
       let roleInfo = ``;
       if (role === `Engineer`) {
-        roleInfo = `GitHub Username`;
+        roleInfo = `Github Username`;
       } else if (role === `Intern`) {
         roleInfo = `School Name`;
       } else {
@@ -64,37 +64,24 @@ function addEmployee() {
       } else {
           newEmployee = new Manager(name, id, email, roleInfo);
       }
-      employee.push(newEmployee);
-      pageHTML(newEmployee)
-      .then(function() {
-          if (moreEmployees) {
-              addEmployee();
-          } else {
-              finishHTML();
-          }
-      });
+      employees.push(newEmployee);
+      addOrGenerate(moreEmployees);
+
+
 
     });
   });
 };
-
+function addOrGenerate(ans) {
+  if (ans == true) {
+    addEmployee();
+  } else {
+    writeFile(generatePage(employees));
+    return false;
+  }
+}
 
 generateProfile()
-.then(employee => {
-  return generatePage(employee);
-})  
-.then(pageHTML => {
-  return writeFile(pageHTML);
-})   
-.then(writeFileResponse => {
-  console.log(writeFileResponse);
-  return copyFile();
-})
-.then(copyFileResponse => {
-  console.log(copyFileResponse);
-})
-.catch(err => {
-  console.log(err);
-});
+
 
 

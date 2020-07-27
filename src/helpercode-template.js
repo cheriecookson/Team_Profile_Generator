@@ -8,15 +8,15 @@ const gererateProfileCard = employee => {
         let data = "";
 // Engineer profile
         if (role === "Engineer") {
-            const gitHub = employee.getGithub();
+            const github = employee.getGithub();
             data = `<div class="card shadow m-3 bg-light" style="max-width: 20rem;">
             <div class="card-header text-white border-bottom-0 pb-1">${name}</div>
                 <div class="card-header text-white pt-1"><span><i class="fas fa-user-astronaut"></i></span>Engineer</div>                               
                     <div class="card-body">
                         <ul class="list-group shadow-sm">
-                            <li class="list-group-item border">ID: ${id}</li>
+                            <li class="list-group-item border">Employee ID: ${id}</li>
                             <li class="list-group-item border">Email Address: ${email}</li>
-                            <li class="list-group-item border">GitHub: ${gitHub}</li>
+                            <li class="list-group-item border">Github Username: ${github}</li>
                         </ul>
                     </div>
         </div>`
@@ -29,7 +29,7 @@ const gererateProfileCard = employee => {
                 <div class="card-header text-white pt-1"><span><i class="fas fa-user-astronaut"></i></span>Intern</div>                               
                     <div class="card-body">
                         <ul class="list-group shadow-sm">
-                            <li class="list-group-item border">ID: ${id}</li>
+                            <li class="list-group-item border">Employee ID: ${id}</li>
                             <li class="list-group-item border">Email Address: ${email}</li>
                             <li class="list-group-item border">School: ${school}</li>
                         </ul>
@@ -44,18 +44,19 @@ const gererateProfileCard = employee => {
                     <div class="card-header text-white pt-1"><span><i class="fas fa-user-astronaut"></i></span>Manager</div>                               
                         <div class="card-body">
                             <ul class="list-group shadow-sm">
-                                <li class="list-group-item border">ID: ${id}</li>
+                                <li class="list-group-item border">Employee ID: ${id}</li>
                                 <li class="list-group-item border">Email Address: ${email}</li>
                                 <li class="list-group-item border">Office Phone: ${officeNum}</li>
                             </ul>
                         </div>
             </div>`
         }
+        return data;
 };
 
 
-module.exports = profileData => {
-    const { employee } = profileData;
+module.exports = employees => {
+
     return `
     <!DOCTYPE html>
     <html lang="en">
@@ -79,7 +80,7 @@ module.exports = profileData => {
     <body>
         <header class="display-4 bg-dark text-white text-center p-2 shadow-sm">Team Profile</header>
             <main class="card-group">
-            ${gererateProfileCard(employee)}
+            ${employees.map(gererateProfileCard).join(` `)}
 
             </main> 
     </body>
