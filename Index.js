@@ -1,7 +1,9 @@
 const inquirer = require('inquirer'); 
-const fs = require('fs');
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
+const Manager = require("./lib/Manager");
 const generatePage = require(`./src/helpercode-template.js`);
-const addHtml = require(`./src/helpercode-template.js`);
+const { writeFile, copyFile } = require('./utils/generate-site');
 
 const employee = [];
 
@@ -48,10 +50,10 @@ function addEmployee() {
         name: "roleInfo"
     },
     {
-        type: `list`,
+        type: `confirm`,
         name: "moreEmployees",
         message: `Would you like to add employees?`,
-        choices: [`yes`, `no`]
+        default: true
     }])
     .then(function({roleInfo, moreEmployees}) {
       let newEmployee;
@@ -63,12 +65,12 @@ function addEmployee() {
           newEmployee = new Manager(name, id, email, roleInfo);
       }
       employee.push(newEmployee);
-      addHtml(newEmployee)
+      pageHTML(newEmployee)
       .then(function() {
-          if (moreEmployees === "yes") {
+          if (moreEmployees) {
               addEmployee();
           } else {
-              finishHtml();
+              finishHTML();
           }
       });
 
@@ -77,19 +79,22 @@ function addEmployee() {
 };
 
 
-function finishHtml() {
-
-    fs.appendFile('./dist/index.html', generatePage(), err => {
-      if (err) throw err;
-    });
-  
-    fs.copyFile('./src/style.css', './dist/style.css', err => {
-      if (err) throw err;
-    });
-  
-  };
-
-  generateProfile();
-     
+generateProfile()
+.then(employee => {
+  return generatePage(employee);
+})  
+.then(pageHTML => {
+  return writeFile(pageHTML);
+})   
+.then(writeFileResponse => {
+  console.log(writeFileResponse);
+  return copyFile();
+})
+.then(copyFileResponse => {
+  console.log(copyFileResponse);
+})
+.catch(err => {
+  console.log(err);
+});
 
 
