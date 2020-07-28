@@ -15,8 +15,8 @@ const gererateProfileCard = employee => {
                     <div class="card-body">
                         <ul class="list-group shadow-sm">
                             <li class="list-group-item border">Employee ID: ${id}</li>
-                            <li class="list-group-item border">Email Address: ${email}</li>
-                            <li class="list-group-item border">Github Username: ${github}</li>
+                            <li class="list-group-item border">Email Address: <a href="mailto://">${email}</a></li>
+                            <li class="list-group-item border">Github Username: <a href="https://github.com/"<span>${github}</span></a></li>
                         </ul>
                     </div>
         </div>`
@@ -30,7 +30,7 @@ const gererateProfileCard = employee => {
                     <div class="card-body">
                         <ul class="list-group shadow-sm">
                             <li class="list-group-item border">Employee ID: ${id}</li>
-                            <li class="list-group-item border">Email Address: ${email}</li>
+                            <li class="list-group-item border">Email Address: <a href="mailto://">${email}</a></li>
                             <li class="list-group-item border">School: ${school}</li>
                         </ul>
                     </div>
@@ -45,7 +45,7 @@ const gererateProfileCard = employee => {
                         <div class="card-body">
                             <ul class="list-group shadow-sm">
                                 <li class="list-group-item border">Employee ID: ${id}</li>
-                                <li class="list-group-item border">Email Address: ${email}</li>
+                                <li class="list-group-item border">Email Address: <a href="mailto://">${email}</a></li>
                                 <li class="list-group-item border">Office Phone: ${officeNum}</li>
                             </ul>
                         </div>
