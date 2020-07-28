@@ -6,7 +6,7 @@
 
  Tests are also preformed and passed for each part of the code.
 
- ## Build With
+ ## Built With
 
  * Node.js
  * Jest
@@ -17,4 +17,9 @@
 
  ## Screenshot of Webpage
 
+![image](https://user-images.githubusercontent.com/65319429/88724298-d525b200-d0ef-11ea-8086-8df165088b02.png)
+
+## Link
+
+[Walkthrough Video](https://cheriecookson.github.io/weather-dashboard/)
 
