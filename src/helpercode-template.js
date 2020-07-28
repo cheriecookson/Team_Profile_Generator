@@ -11,7 +11,7 @@ const gererateProfileCard = employee => {
             const github = employee.getGithub();
             data = `<div class="card shadow m-3 bg-light" style="max-width: 20rem;">
             <div class="card-header text-white border-bottom-0 pb-1">${name}</div>
-                <div class="card-header text-white pt-1"><span><i class="fas fa-user-astronaut"></i></span>Engineer</div>                               
+                <div class="card-header text-white pt-1"><span><i class="fas fa-user-astronaut"></i></span>  Engineer</div>                               
                     <div class="card-body">
                         <ul class="list-group shadow-sm">
                             <li class="list-group-item border">Employee ID: ${id}</li>
@@ -26,7 +26,7 @@ const gererateProfileCard = employee => {
             const school = employee.getSchool();
             data = `<div class="card shadow m-3 bg-light" style="max-width: 20rem;">
             <div class="card-header text-white border-bottom-0 pb-1">${name}</div>
-                <div class="card-header text-white pt-1"><span><i class="fas fa-user-astronaut"></i></span>Intern</div>                               
+                <div class="card-header text-white pt-1"><span><i class="fas fa-user-graduate"></i></span>  Intern</div>                               
                     <div class="card-body">
                         <ul class="list-group shadow-sm">
                             <li class="list-group-item border">Employee ID: ${id}</li>
@@ -41,7 +41,7 @@ const gererateProfileCard = employee => {
             const officeNum = employee.getOfficeNum();
             data = `<div class="card shadow m-3 bg-light" style="max-width: 20rem;">
                 <div class="card-header text-white border-bottom-0 pb-1">${name}</div>
-                    <div class="card-header text-white pt-1"><span><i class="fas fa-user-astronaut"></i></span>Manager</div>                               
+                    <div class="card-header text-white pt-1"><span><i class="fas fa-robot"></i></span>  Manager</div>                               
                         <div class="card-body">
                             <ul class="list-group shadow-sm">
                                 <li class="list-group-item border">Employee ID: ${id}</li>
