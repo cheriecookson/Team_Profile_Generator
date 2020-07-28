@@ -21,5 +21,5 @@
 
 ## Link
 
-[Walkthrough Video](https://cheriecookson.github.io/weather-dashboard/)
+[Walkthrough Video](https://drive.google.com/file/d/12reMZsqvBxPSvveSuy-ouLFdHUOQ6deI/view)
 
